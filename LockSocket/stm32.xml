@@ -7,7 +7,7 @@
     <Revision>3</Revision>
   </ToolchainVersion>
   <BspID>com.sysprogs.arm.stm32</BspID>
-  <BspVersion>2018.08</BspVersion>
+  <BspVersion>2018.12R2</BspVersion>
   <McuID>STM32F103C8</McuID>
   <MCUDefinitionFile>STM32F1xxxx/DeviceDefinitions/stm32f103xb.xml</MCUDefinitionFile>
   <MCUProperties>
@@ -45,7 +45,7 @@
     <AllDependencies>
       <ProjectDependency>
         <RelativePath>..\LockSocket.gpdsc</RelativePath>
-        <Timestamp>131956609996087098</Timestamp>
+        <Timestamp>131957058045477101</Timestamp>
       </ProjectDependency>
     </AllDependencies>
     <RootDirectory>
@@ -252,11 +252,11 @@
       <ImportedConfiguration>
         <Settings>
           <IncludeDirectories>
-            <string>C:\Users\K\Desktop\Stm32VS\LockSocket\Inc</string>
-            <string>C:\Users\K\Desktop\Stm32VS\LockSocket\Drivers\CMSIS\Device\ST\STM32F1xx\Include</string>
-            <string>C:\Users\K\Desktop\Stm32VS\LockSocket\Drivers\STM32F1xx_HAL_Driver\Inc</string>
-            <string>C:\Users\K\Desktop\Stm32VS\LockSocket\Drivers\STM32F1xx_HAL_Driver\Inc\Legacy</string>
-            <string>C:\Users\K\Desktop\Stm32VS\LockSocket\Drivers\STM32F1xx_HAL_Driver\Src</string>
+            <string>C:\Users\K\Desktop\Stm32VS\LockAdapter\LockSocket\..\Inc</string>
+            <string>C:\Users\K\Desktop\Stm32VS\LockAdapter\LockSocket\..\Drivers\CMSIS\Device\ST\STM32F1xx\Include</string>
+            <string>C:\Users\K\Desktop\Stm32VS\LockAdapter\LockSocket\..\Drivers\STM32F1xx_HAL_Driver\Inc</string>
+            <string>C:\Users\K\Desktop\Stm32VS\LockAdapter\LockSocket\..\Drivers\STM32F1xx_HAL_Driver\Inc\Legacy</string>
+            <string>C:\Users\K\Desktop\Stm32VS\LockAdapter\LockSocket\..\Drivers\STM32F1xx_HAL_Driver\Src</string>
           </IncludeDirectories>
           <PreprocessorMacros>
             <string>$$com.sysprogs.bspoptions.primary_memory$$_layout</string>

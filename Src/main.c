@@ -134,30 +134,19 @@ int main(void)
 
   if (HAL_UART_Receive_DMA(&huart1, (uint8_t *)&usart1_rx_buffer, 128) != HAL_OK)    Error_Handler();
   if (HAL_UART_Receive_DMA(&huart2, (uint8_t *)&usart2_rx_buffer, 128) != HAL_OK)    Error_Handler();
- // if (HAL_UART_Receive_DMA(&huart3, (uint8_t *)&usart3_rx_buffer, 128) != HAL_OK)    Error_Handler();
+  if (HAL_UART_Receive_DMA(&huart3, (uint8_t *)&usart3_rx_buffer, 128) != HAL_OK)    Error_Handler();
 
   __HAL_UART_ENABLE_IT(&huart1, UART_IT_IDLE);
   __HAL_UART_ENABLE_IT(&huart2, UART_IT_IDLE);
-  //__HAL_UART_ENABLE_IT(&huart3, UART_IT_IDLE);
+  __HAL_UART_ENABLE_IT(&huart3, UART_IT_IDLE);
 
-  HAL_HalfDuplex_EnableTransmitter(&huart3);
+
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-
-	  HAL_UART_Transmit(&huart3, "#1P1500T100!", 13, 0xff);
-	  HAL_Delay(1000);
-
-	  HAL_UART_Transmit(&huart3, "#1P1000T100!", 13, 0xff);
-	  HAL_Delay(1000);
-
-	  HAL_UART_Transmit(&huart3, "#1P1200T100!", 13, 0xff);
-	  HAL_Delay(1000);
-	  HAL_UART_Transmit(&huart3, "#1P1800T100!", 13, 0xff);
-	  HAL_Delay(1000);
 
 	  //HAL_UART_Transmit(&huart1, "helloUart1\n", 13, 0xff);
 	  //HAL_UART_Transmit(&huart2, "helloUart2\n", 13, 0xff);
@@ -175,38 +164,38 @@ int main(void)
 
 	  //if (1 == usart1_rx_flag)
 	  //{
-		 // HAL_UART_Transmit(&huart1, usart1_tx_buffer, usart1_tx_len, 0xff);
+		 // HAL_UART_Transmit(&huart3, usart1_tx_buffer, usart1_tx_len, 0xff);
 		 // usart1_rx_flag = 0;
 	  //}
 
 	  
 
-	  //if (1 == usart1_rx_flag)
-	  //{
-		 // if ((usart1_tx_buffer[0] == 0xaa)&&(usart1_tx_buffer[1] == 0x55))
-		 // {
-			//  HAL_UART_Transmit(&huart2, usart1_tx_buffer, usart1_tx_len, 0xff);
-		 // }
-		 // else if (usart1_tx_buffer[0] == '#')
-		 // {
-			//  HAL_HalfDuplex_EnableTransmitter(&huart3);
-			//  HAL_UART_Transmit(&huart3, usart1_tx_buffer, usart1_tx_len, 0xff);
-			//  HAL_HalfDuplex_EnableReceiver(&huart3);
-		 // }
-		 // usart1_rx_flag = 0;
-	  //}
+	  if (1 == usart1_rx_flag)
+	  {
+		  if ((usart1_tx_buffer[0] == 0xaa)&&(usart1_tx_buffer[1] == 0x55))
+		  {
+			  HAL_UART_Transmit(&huart2, usart1_tx_buffer, usart1_tx_len, 0xff);
+		  }
+		  else if (usart1_tx_buffer[0] == '#')
+		  {
+			  HAL_HalfDuplex_EnableTransmitter(&huart3);
+			  HAL_UART_Transmit(&huart3, usart1_tx_buffer, usart1_tx_len, 0xff);
+			  HAL_HalfDuplex_EnableReceiver(&huart3);
+		  }
+		  usart1_rx_flag = 0;
+	  }
 
-	  //if (1 == usart2_rx_flag)
-	  //{
-		 // HAL_UART_Transmit(&huart1, usart2_tx_buffer, usart2_tx_len, 0xff);
-		 // usart2_rx_flag = 0;
-	  //}
+	  if (1 == usart2_rx_flag)
+	  {
+		  HAL_UART_Transmit(&huart1, usart2_tx_buffer, usart2_tx_len, 0xff);
+		  usart2_rx_flag = 0;
+	  }
 
-	  //if (1 == usart3_rx_flag)
-	  //{
-		 // HAL_UART_Transmit(&huart1, usart3_tx_buffer, usart3_tx_len, 0xff);
-		 // usart3_rx_flag = 0;
-	  //}
+	  if (1 == usart3_rx_flag)
+	  {
+		  HAL_UART_Transmit(&huart1, usart3_tx_buffer, usart3_tx_len, 0xff);
+		  usart3_rx_flag = 0;
+	  }
 
 	  
   }
